@@ -9,15 +9,19 @@
  deep learning, efficient deep learning, natural language processing, QDA,
   machine learning">
 
-<link rel="stylesheet" href="css/ma">
-<link rel="icon" type="image/x-icon" href="images/logo.png" />
+<link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/logo.png') }}"/>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.fancybox.min.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+
+
+<link rel="icon" type="image/x-icon" href="static\images\logo.png" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css"/>
-<link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css"/>
-<link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css"/>
-<link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css"/>
-<link rel="stylesheet" type="text/css" href="style.css"/>
+<link rel="stylesheet" type="text/css" href="css\owl.carousel.min.css"/>
+<link rel="stylesheet" type="text/css" href="css\owl.theme.default.min.css"/>
+<!--<link rel="stylesheet" type="text/css" href="style.css"/>-->
 
 
 <!--font awesome-->
@@ -30,13 +34,13 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="/jquery/jquery-3.4.1.min.js"></script>
-<script src="js/scripts.js"></script>
+<script src="static\js\scripts.js"></script>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
       <div class="container"> 
-        <img src="images/logo.png" alt="logo" class="logo-1"> 
+        <img src="static\images\logo.png" alt="logo" class="logo-1"> 
         
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="fas fa-bars"></span> </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -146,13 +150,13 @@
                           if(bodyScroll > 130){
                     
                               navbar.addClass("nav-scroll");
-                              $('.navbar-logo img').attr('src','images/logo-black.png');
+                              $('.navbar-logo img').attr('src','static\images\logo-black.png');
                     
                     
                           }else{
                     
                               navbar.removeClass("nav-scroll");
-                              $('.navbar-logo img').attr('src','images/logo-white.png');
+                              $('.navbar-logo img').attr('src','static\images\logo-black.png');
                     
                           }
                     
@@ -168,13 +172,13 @@
                     if(bodyScroll > 130){
                     
                     navbar.addClass("nav-scroll");
-                    $('.navbar-logo img').attr('src','images/logo-black.png');
+                    $('.navbar-logo img').attr('src','static\images\logo-black.png');
                     
                     
                     }else{
                     
                     navbar.removeClass("nav-scroll");
-                    $('.navbar-logo img').attr('src','images/logo-white.png');
+                    $('.navbar-logo img').attr('src','static\images\logo-white.png');
                     
                     }
                     

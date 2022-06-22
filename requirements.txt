@@ -5,3 +5,4 @@ gunicorn
 openpyxl
 bs4
 lxml
+html5lib

@@ -24,7 +24,7 @@ class ArticleScraper:
 
         html = requests.get('https://scholar.google.com/citations',
          headers=self.headers, params=params).text
-        soup = BeautifulSoup(html, 'lxml')
+        soup = BeautifulSoup(html, "html.parser")
 
         for article_info in soup.select('#gsc_a_b .gsc_a_t'):
             title = article_info.select_one('.gsc_a_at').text

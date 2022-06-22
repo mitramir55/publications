@@ -1,3 +1,2 @@
 Flask
 CherryPy
-googleScholarScraper

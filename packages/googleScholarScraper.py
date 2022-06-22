@@ -9,7 +9,7 @@ class ArticleScraper:
     def __init__(self):
         self.headers = {
             'User-agent':
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.19582"
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
             }
         
     def scrape(self, user):
@@ -22,8 +22,7 @@ class ArticleScraper:
         params = {"user": user, "sortby": "pubdate", "hl": "en"}
         publications_list = []
 
-        html = requests.get('https://scholar.google.com/citations',
-         headers=self.headers, params=params).text
+        html = requests.get('https://scholar.google.com/citations', params=params).text
         soup = BeautifulSoup(html, "html.parser")
 
         for article_info in soup.select('#gsc_a_b .gsc_a_t'):

@@ -2,3 +2,4 @@ Flask
 CherryPy
 gunicorn
 openpyxl
+bs4

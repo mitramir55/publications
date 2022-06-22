@@ -3,7 +3,7 @@ from flask import Flask, redirect, url_for, render_template, request, session
 from graphviz import render
 import numpy as np
 import pandas as pd
-
+from googleScholarScraper import ArticleScraper
 
 
 app = Flask(__name__)
@@ -15,11 +15,14 @@ ALLOWED_EXTENSIONS = {'txt'}
 app.config['SECRET_KEY'] = '12345'
 
 #------------------------------------------------------
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/papers', methods=['POST', 'GET'])
 def index(**kwargs):
-    return render_template('index.html')
 
+    # Ann Barcomb user id 
+    user = "1hMBs-8AAAAJ"
 
-
-
+    scraper = ArticleScraper()
+    publications_list = scraper.scrape(user=user)
     
+    return render_template('papers.html', publications_list=publications_list)
+

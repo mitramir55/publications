@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<!-- Banner Image -->
+
+<div class="banner text-center" data-scroll-index='0'>
+  <div class="banner-overlay">
+    <div class="container">
+      <h1 class="text-capitalize">Research papers</h1>
+      <p>
+        Schulich School of Engineering, University of Calgary
+      </p></div>
+  </div>
+</div>
+
+<!-- End Banner Image --> 
+
+
+<!-- Services -->
+<div class="services section-padding bg-grey" data-scroll-index='2'>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 section-title text-center">
+        <!--  <h3 style="bottom:-10 px;">What We do</h3>
+     
+          <p>
+          ---
+        </p>
+        <span class="section-title-line"></span>
+        
+        <i class="fas fa-chart-line"></i>
+      -->
+       </div>
+{% for publication in publications_list %}
+      <div class="col-lg-12 col-md-6 col-sm-12 col-xs-12 mb-30">
+        <span class="section-title-line" style="margin-bottom: 5px;"></span>
+        <div class="service-box bg-white text-center">
+          <div class="icon">  </div>
+          <div class="icon-text">
+            <h4 class="title-box">
+              <a href="{{ publications_list['title_link'] }}">
+              {{publication['title']}}
+            </a>
+            </h4>
+            <p>
+              {{publication['publications']}}
+              <br>
+              Authors: {{publication['authors']}}
+            </p>
+          </div>
+        </div>
+      </div>
+      
+{% endfor %}
+
+
+
+{% endblock %}

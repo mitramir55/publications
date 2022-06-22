@@ -4,3 +4,4 @@ CherryPy
 gunicorn
 openpyxl
 bs4
+lxml

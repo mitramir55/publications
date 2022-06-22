@@ -12,7 +12,7 @@ ALLOWED_EXTENSIONS = {'txt'}
 app.config['SECRET_KEY'] = '12345'
 
 #------------------------------------------------------
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['POST'])
 def index(**kwargs):
 
     # Ann Barcomb user id 

@@ -1,8 +1,5 @@
 
 from flask import Flask, redirect, url_for, render_template, request, session
-from graphviz import render
-import numpy as np
-import pandas as pd
 from googleScholarScraper import ArticleScraper
 
 

@@ -21,5 +21,5 @@ def index(**kwargs):
     scraper = ArticleScraper()
     publications_list = scraper.scrape(user=user)
     
-    return render_template('papers.html', publications_list=publications_list)
+    return render_template('index.html', publications_list=publications_list)
 

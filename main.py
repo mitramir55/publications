@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = '12345'
 
 #------------------------------------------------------
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/', methods=['GET'])
 def index(**kwargs):
 
     # Ann Barcomb user id 

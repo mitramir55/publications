@@ -19,11 +19,12 @@ class ArticleScraper:
         input: name of author
         output: [{title, title_link, authors, publication}, {...}]
         """
-        params = {"user": user, "sortby": "pubdate"}
+        params = {"user": user, "sortby": "pubdate", "hl":"en"}
         publications_list = []
 
-        html = requests.get('https://scholar.google.com/citations', params=params, headers=self.headers).text
-        soup = BeautifulSoup(html, "html.parser")
+        html = requests.get('https://scholar.google.com/citations', params=params, headers=self.headers, timeout=5)
+        text = html.text
+        soup = BeautifulSoup(text, 'lxml')
 
         for article_info in soup.select('#gsc_a_b .gsc_a_t'):
             title = article_info.select_one('.gsc_a_at').text

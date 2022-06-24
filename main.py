@@ -20,3 +20,6 @@ def index(**kwargs):
     
     return render_template('index.html', publications_list=publications_list)
 
+@app.route('/people', methods=['GET'])
+def people(**kwargs):
+    return render_template('people.html')

@@ -47,8 +47,13 @@
     transition: all 0.5s ease 0.3s;
 }
 .our-team:hover .social{ opacity: 1; }
-.our-team .social li{ display: inline-block; }
+.our-team .social li{ 
+    display: inline-block;
+}
 .our-team .social li a{
+    
+    fill: #fff;
+    color: #fff !important;
     display: block;
     width: 40px;
     height: 40px;

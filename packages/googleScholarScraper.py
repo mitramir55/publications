@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-import requests, lxml, os
+import requests
 
 class ArticleScraper:
     """
@@ -24,7 +24,7 @@ class ArticleScraper:
 
         html = requests.get('https://scholar.google.com/citations', params=params, headers=self.headers, timeout=5)
         text = html.text
-        soup = BeautifulSoup(text, 'lxml')
+        soup = BeautifulSoup(text, 'html.parser')
 
         for article_info in soup.select('#gsc_a_b .gsc_a_t'):
             title = article_info.select_one('.gsc_a_at').text

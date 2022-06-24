@@ -12,7 +12,18 @@ app.config['SECRET_KEY'] = '12345'
 
 @app.route('/index', methods=['GET'])
 def index(**kwargs):
-    return render_template('index.html')
+
+    try:
+        # Ann Barcomb user id 
+        user = "1hMBs-8AAAAJ"
+
+        scraper = googleScholarScraper.ArticleScraper()
+        publications_list = scraper.scrape(user=user)
+        
+    except:
+        return render_template('index.html', papers=False)
+
+    return render_template('index.html', papers=True)
 
 
 @app.route('/', methods=['GET'])

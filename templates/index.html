@@ -100,7 +100,7 @@
 </div>
 -->
 <!-- End Services --> 
-
+{% if topics_dict %}
 <!-- Gallery -->
 <div class="portfolio section-padding" id="papers" data-scroll-index='3'>
   <div class="container-fluid">
@@ -117,100 +117,31 @@
         <!--<button type="button" data-filter='.spring'>Spring</button>-->
       </div>
       <div class="gallery no-padding col-lg-12 col-sm-12">
-        <div class="col-lg-4 col-sm-6 spring no-padding">
-          <div class="item-img"> <a class="single-image" href="static\images\gall1.jpg"></a>
-            <div class="part-img"> <img src="static\images\gall1.jpg" alt="image">
-              <div class="overlay-img">
-                <h4>QDA</h4>
-                <h6>A validation of QDAcity--RE for domain modeling using qualitative data analysis</h6>
+
+        {% for topic in topics_dict.keys() %}
+          {% for paper_dict in topics_dict[topic][:3] %}
+            <div class="col-lg-4 col-sm-6 spring no-padding">
+              <div class="item-img"> <a class="single-image" href="{{paper_dict['title_link']}}"></a>
+                <div class="part-img"> <img src="static\images\gall1.jpg" alt="image">
+                  <div class="overlay-img">
+                    <h4>{{topic}}</h4>
+                    <!-- turn h6 to paragraph or h with smaller font size-->
+                    <h6>{{ paper_dict['title'] }}</h6>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 spring no-padding">
-          <div class="item-img"> <a class="single-image" href="static\images\gall2.jpg"></a>
-            <div class="part-img"> <img src="static\images\gall2.jpg" alt="image">
-              <div class="overlay-img">
-                <h4>Spring</h4>
-                <h6>Flower Pot</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 spring no-padding">
-          <div class="item-img"> <a class="single-image" href="static\images\gall3.jpg"></a>
-            <div class="part-img"> <img src="static\images\gall3.jpg" alt="image">
-              <div class="overlay-img">
-                <h4>Spring</h4>
-                <h6>Bird with Flower</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 NLP no-padding">
-          <div class="item-img"> <a class="single-image" href="static\images\gall4.jpg"></a>
-            <div class="part-img"> <img src="static\images\gall4.jpg" alt="image">
-              <div class="overlay-img">
-                <h4>NLP</h4>
-                <h6>Vacation Trip Van</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 QDA no-padding">
-          <div class="item-img"> <a class="single-image" href="static\images\gall5.jpg"></a>
-            <div class="part-img"> <img src="static\images\gall5.jpg" alt="image">
-              <div class="overlay-img">
-                <h4>QDA</h4>
-                <h6>Girl in the snow</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 SoftwareEngineering no-padding">
-          <div class="item-img"> <a class="single-image" href="static\images\gall6.jpg"></a>
-            <div class="part-img"> <img src="static\images\gall6.jpg" alt="image">
-              <div class="overlay-img">
-                <h4>SoftwareEngineering</h4>
-                <h6>Man with an Umberalla</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 NLP no-padding">
-          <div class="item-img"> <a class="single-image" href="static\images\gall7.jpg"></a>
-            <div class="part-img"> <img src="static\images\gall7.jpg" alt="image">
-              <div class="overlay-img">
-                <h4>NLP</h4>
-                <h6>New Beginning</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 SoftwareEngineering no-padding">
-          <div class="item-img"> <a class="single-image" href="static\images\gall8.jpg"></a>
-            <div class="part-img"> <img src="static\images\gall8.jpg" alt="image">
-              <div class="overlay-img">
-                <h4>SoftwareEngineering</h4>
-                <h6>Girl in the Rain</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 NLP no-padding">
-          <div class="item-img"> <a class="single-image" href="static\images\gall9.jpg"></a>
-            <div class="part-img"> <img src="static\images\gall9.jpg" alt="image">
-              <div class="overlay-img">
-                <h4>NLP</h4>
-                <h6>Fun at the Seashores</h6>
-              </div>
-            </div>
-          </div>
-        </div>
+            {% endfor %}
+      {% endfor %}
+
+
+
       </div>
     </div>
   </div>
 </div>
+
+{% endif %}
 <!-- End Gallery -->
 
 <!-- Testimonials -->

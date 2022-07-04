@@ -42,3 +42,33 @@ class ArticleScraper:
 
 
 
+    def scrape_topic(self, phrase):
+        
+        # search parameters
+
+
+        params = {"q": phrase, "hl": "en"}
+        html = requests.get('https://scholar.google.com/scholar', headers=self.headers, params=params).text
+        soup = BeautifulSoup(html, 'lxml')
+
+            
+        # the dictionary will be collected here
+        dict_ = []
+
+        # Container where all needed dict_ is located
+        for result in soup.select('.gs_ri'):
+            title = result.select_one('.gs_rt').text
+            title_link = result.select_one('.gs_rt a')['href']
+            snippet = result.select_one('.gs_rs').text
+            #related_articles = result.select_one('a:nth-child(4)')['href']
+            try:
+                all_article_versions = result.select_one('a~ a+ .gs_nph')['href']
+            except:
+                all_article_versions = None
+            dict_.append({
+                'title': title,
+                'title_link': title_link,
+                'snippet': snippet,
+                #'related_articles': f'https://scholar.google.com{related_articles}',
+            })
+        return dict_

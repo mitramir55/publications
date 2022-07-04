@@ -10,7 +10,7 @@ app.config['SECRET_KEY'] = '12345'
 
 #------------------------------------------------------
 
-@app.route('/index', methods=['GET'])
+@app.route('/', methods=['GET'])
 def index(**kwargs):
 
     try:
@@ -26,7 +26,7 @@ def index(**kwargs):
     return render_template('index.html', papers=True)
 
 
-@app.route('/', methods=['GET'])
+@app.route('/publications', methods=['GET'])
 def publications(**kwargs):
 
     # Ann Barcomb user id 

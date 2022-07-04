@@ -19,3 +19,5 @@ def index(**kwargs):
 
 
 ```
+
+Add the academic icons svgs.

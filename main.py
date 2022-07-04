@@ -10,20 +10,10 @@ app.config['SECRET_KEY'] = '12345'
 
 #------------------------------------------------------
 
+
 @app.route('/', methods=['GET'])
 def index(**kwargs):
-
-    try:
-        # Ann Barcomb user id 
-        user = "1hMBs-8AAAAJ"
-
-        scraper = googleScholarScraper.ArticleScraper()
-        publications_list = scraper.scrape(user=user)
-        
-    except:
-        return render_template('index.html', papers=False)
-
-    return render_template('index.html', papers=True)
+    return render_template('index.html')
 
 
 @app.route('/publications', methods=['GET'])
@@ -36,6 +26,7 @@ def publications(**kwargs):
     publications_list = scraper.scrape(user=user)
     
     return render_template('publications.html', publications_list=publications_list)
+
 
 @app.route('/people', methods=['GET'])
 def people(**kwargs):
@@ -50,3 +41,4 @@ def teaching(**kwargs):
 @app.route('/positions', methods=['GET'])
 def positions(**kwargs):
     return render_template('positions.html')
+

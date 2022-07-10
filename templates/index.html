@@ -111,9 +111,9 @@
         <span class="section-title-line"></span> </div>
       <div class="filtering text-center mb-30">
         <button type="button" data-filter='*' class="active">All</button>
-        <button type="button" data-filter='.NLP'>Natural Language Processing</button>
-        <button type="button" data-filter='.QDA'>QDA</button>
-        <button type="button" data-filter='.SoftwareEngineering'>SoftwareEngineering</button>
+        {% for topic in topics_dict.keys() %}
+          <button type="button" data-filter='.{{topic}}'>{{topic}}</button>
+        {% endfor %}
         <!--<button type="button" data-filter='.spring'>Spring</button>-->
       </div>
       <div class="gallery no-padding col-lg-12 col-sm-12">

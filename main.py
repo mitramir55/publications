@@ -13,7 +13,7 @@ app.config['SECRET_KEY'] = '12345'
 
 @app.route('/', methods=['GET'])
 def index(**kwargs):
-    topics = ['requirements engineering', 'NLP', 'Artificial Intelligence']
+    topics = ['Requirements engineering', 'NLP', 'Artificial Intelligence']
 
     scraper = googleScholarScraper.ArticleScraper()
     topics_dict = {}

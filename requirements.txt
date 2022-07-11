@@ -9,4 +9,3 @@ html5lib
 Werkzeug
 bs4
 google
-pickle

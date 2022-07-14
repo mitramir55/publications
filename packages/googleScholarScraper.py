@@ -43,7 +43,11 @@ class ArticleScraper:
 
 
     def scrape_topic(self, phrase):
-        
+        """
+        gets a phrase and outputs a list of articles information for it
+        output:
+        [{'topic': 'NLP', 'title':'...', 'link':'...'}, {...}]
+        """
         # search parameters
         topic_name = self.produce_full_names(phrase=phrase)
         params = {"q": phrase, "hl": "en"}
@@ -52,7 +56,7 @@ class ArticleScraper:
 
             
         # the dictionary will be collected here
-        dict_ = []
+        dicts_list = []
 
         # Container where all needed dict_ is located
         for result in soup.select('.gs_ri'):
@@ -66,7 +70,7 @@ class ArticleScraper:
              #   all_article_versions = None
 
 
-            dict_.append({
+            dicts_list.append({
                 'title': title,
                 'title_link': title_link,
                 'snippet': snippet,
@@ -74,8 +78,29 @@ class ArticleScraper:
                 #'related_articles': f'https://scholar.google.com{related_articles}',
             })
 
-        return dict_
+        return dicts_list
 
+    def scrape_topics(self, topics_acronyms):
+        """
+        Gets names of topics and outputs a dictionary of topics with list
+        of articles as the value
+
+        output
+        {'NLP': 
+            [{'topic': 'NLP', 'title':'...', 'link':'...'}, {...}]
+        'RE':
+            [{'topic': 'RE', 'title':'...', 'link':'...'}, {...}]
+        ...
+        }
+        """
+        
+        topics_dict = {}
+        for topic in topics_acronyms:
+            dicts_list = self.scrape_topic(phrase=topic)
+            topics_dict[topic] = dicts_list
+
+        return topics_dict
+        
     def produce_full_names(self, phrase):
         """
         creates an acronym to be used in the html and css as a class

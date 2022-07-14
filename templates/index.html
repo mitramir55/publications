@@ -111,22 +111,22 @@
         <span class="section-title-line"></span> </div>
       <div class="filtering text-center mb-30">
         <button type="button" data-filter='*' class="active">All</button>
-        {% for topic in topics_dict.keys() %}
-          <button type="button" data-filter='.{{topic}}'>{{topic}}</button>
+        {% for topic_acronym in topics_dict.keys() %}
+          <button type="button" data-filter=".{{topic_acronym}}">{{topics_dict[topic_acronym][0]['topic']}}</button>
         {% endfor %}
         <!--<button type="button" data-filter='.spring'>Spring</button>-->
       </div>
       <div class="gallery no-padding col-lg-12 col-sm-12">
 
-        {% for topic in topics_dict.keys() %}
-          {% for paper_dict in topics_dict[topic][:3] %}
-            <div class="col-lg-4 col-sm-6 spring no-padding">
+        {% for topic_acronym in topics_dict.keys() %}
+          {% for paper_dict in topics_dict[topic_acronym][:3] %}
+            <div class="col-lg-4 col-sm-6 {{topic_acronym}} no-padding">
               <div class="item-img"> <a class="single-image" href="{{paper_dict['title_link']}}"></a>
-                <div class="part-img"> <img src="static\images\gall1.jpg" alt="image">
+                <div class="part-img"> <img src="static\images\papers.jpg" alt="image">
                   <div class="overlay-img">
-                    <h4>{{topic}}</h4>
+                    <h4>{{paper_dict['topic']}}</h4>
                     <!-- turn h6 to paragraph or h with smaller font size-->
-                    <h6>{{ paper_dict['title'] }}</h6>
+                    <h6 href="{{paper_dict['title_link']}}">{{ paper_dict['title'] }}</h6>
                   </div>
                 </div>
               </div>

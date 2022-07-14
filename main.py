@@ -15,18 +15,20 @@ app.config['SECRET_KEY'] = '12345'
 
 @app.route('/', methods=['GET'])
 def index(**kwargs):
-    topics = ['Requirements engineering', 'NLP', 'Artificial Intelligence']
-    topics_dir_path = 'static\Files\topics_dict.pickle'
+    
+    topics_acronyms = ['RE', 'NLP', 'AI']
+    
+    topics_dir_path = r"static\Files\topics_dict.pickle"
 
     scraper = googleScholarScraper.ArticleScraper()
     topics_dict = {}
 
-    for topic in topics:
+    for topic in topics_acronyms:
         dict_ = scraper.scrape_topic(phrase=topic)
         topics_dict[topic] = dict_
 
     # read the saved file in case the scraping didn't work
-    if not topics_dict:
+    if topics_dict:
         with open(topics_dir_path, 'wb') as f:
             pickle.dump(topics_dict, f)
     else: topics_dict = pd.read_pickle(topics_dir_path)
@@ -39,13 +41,13 @@ def publications(**kwargs):
 
     # Ann Barcomb user id 
     user = "1hMBs-8AAAAJ"
-    topics_dir_path = 'static\Files\publications_list.pickle'
+    topics_dir_path = r"static\Files\publications_list.pickle"
 
     scraper = googleScholarScraper.ArticleScraper()
     publications_list = scraper.scrape(user=user)
 
     # read the saved file in case the scraping didn't work
-    if not publications_list:
+    if publications_list:
         with open(topics_dir_path, 'wb') as f:
             pickle.dump(publications_list, f)
     else: publications_list = pd.read_pickle(topics_dir_path)

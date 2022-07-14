@@ -170,7 +170,7 @@ a:hover:after {
 	position: relative;
 }
 .banner {
-	background:url("static/images/banner_pic.jpg") no-repeat 0% 0% / 100% 100% ;
+	background:url("../../static/images/banner_pic.jpg") no-repeat 0% 0% / 100% 100% ;
 	color:#ffffff;
 	text-align: center;
 	width: 100%;

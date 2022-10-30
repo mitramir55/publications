@@ -6,6 +6,8 @@ import pandas as pd
 
 
 app = Flask(__name__)
+app.debug = True
+
 
 # config------------------------------------------------
 app.config['SECRET_KEY'] = '12345'
@@ -45,7 +47,7 @@ def index(**kwargs):
 
     topics_acronyms = ['RE', 'NLP', 'AI']
     
-    topics_dir_path = r"static\Files\topics_dict.pickle"
+    topics_dir_path = "static\\Files\\topics_dict.pickle"
 
     scraper = googleScholarScraper.ArticleScraper()
     topics_dict = scraper.scrape_topics(topics_acronyms)
@@ -59,7 +61,7 @@ def publications(**kwargs):
 
     # Ann Barcomb user id 
     user = "1hMBs-8AAAAJ"
-    topics_dir_path = r"static\Files\publications_list.pickle"
+    topics_dir_path = "static\\Files\\publications_list.pickle"
 
     scraper = googleScholarScraper.ArticleScraper()
     publications_list = scraper.scrape(user=user)

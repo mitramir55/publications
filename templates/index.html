@@ -113,8 +113,11 @@
 </div>
 -->
 <!-- End Services --> 
-{% if topics_dict %}
+
 <!-- Gallery -->
+<!--
+{% if topics_dict %}
+
 <div class="portfolio section-padding" id="papers" data-scroll-index='3'>
   <div class="container-fluid">
     <div class="row">
@@ -127,7 +130,6 @@
         {% for topic_acronym in topics_dict.keys() %}
           <button type="button" data-filter=".{{topic_acronym}}">{{topics_dict[topic_acronym][0]['topic']}}</button>
         {% endfor %}
-        <!--<button type="button" data-filter='.spring'>Spring</button>-->
       </div>
       <div class="gallery no-padding col-lg-12 col-sm-12">
 
@@ -138,7 +140,6 @@
                 <div class="part-img"> <img src="static\images\papers.jpg" alt="image">
                   <div class="overlay-img">
                     <h4>{{paper_dict['topic']}}</h4>
-                    <!-- turn h6 to paragraph or h with smaller font size-->
                     <h6 href="{{paper_dict['title_link']}}">{{ paper_dict['title'] }}</h6>
                   </div>
                 </div>
@@ -154,7 +155,7 @@
   </div>
 </div>
 
-{% endif %}
+{% endif %} -->
 <!-- End Gallery -->
 
 <!-- Testimonials -->

@@ -59,6 +59,9 @@ def index(**kwargs):
 @app.route('/publications', methods=['GET'])
 def publications(**kwargs):
 
+    """
+    This function scrapes the publications of Dr. Barcomb
+    """
     # Ann Barcomb user id 
     user = "1hMBs-8AAAAJ"
     topics_dir_path = "static\\Files\\publications_list.pickle"

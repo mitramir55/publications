@@ -1,0 +1,12 @@
+requests
+Flask
+CherryPy
+gunicorn
+openpyxl
+bs4
+lxml
+html5lib
+Werkzeug
+bs4
+google
+pandas

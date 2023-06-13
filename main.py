@@ -4,10 +4,11 @@ from packages import googleScholarScraper
 import pickle
 import pandas as pd
 import os
-from django.conf import settings
+from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 app.debug = True
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 # config------------------------------------------------
@@ -49,7 +50,7 @@ def index(**kwargs):
     topics_acronyms = ['RE', 'NLP', 'AI']
 
     
-    topics_dir_path = os.path.join(settings.BASE_DIR,
+    topics_dir_path = os.path.join(basedir, 
                                 "static/files/topics_dict.pickle")
 
     scraper = googleScholarScraper.ArticleScraper()
@@ -67,7 +68,7 @@ def publications(**kwargs):
     """
     # Ann Barcomb user id 
     user = "1hMBs-8AAAAJ"
-    topics_dir_path = os.path.join(settings.BASE_DIR, 
+    topics_dir_path = os.path.join(basedir,  
                                    "static/files/publications_list.pickle")
 
     scraper = googleScholarScraper.ArticleScraper()

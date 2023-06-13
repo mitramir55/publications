@@ -42,21 +42,20 @@ def save_or_read_file(path, file):
 
     return file
 
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 @app.route('/', methods=['GET'])
 def index(**kwargs):
 
     topics_acronyms = ['RE', 'NLP', 'AI']
 
-    topics_dir_path = os.path.join(app.instance_path, "static", "files",
-                                "topics_dict.pickle")
+    topics_dir_path = os.path.join(basedir, "topics_dict.pickle")
     
     scraper = googleScholarScraper.ArticleScraper()
     topics_dict = scraper.scrape_topics(topics_acronyms)
     topics_dict = save_or_read_file(path=topics_dir_path, file=topics_dict)
 
     return render_template('index.html', topics_dict=topics_dict)
-
 
 @app.route('/publications', methods=['GET'])
 def publications(**kwargs):
@@ -66,8 +65,7 @@ def publications(**kwargs):
     """
     # Ann Barcomb user id 
     user = "1hMBs-8AAAAJ"
-    topics_dir_path = os.path.join(app.instance_path, "static", "files",
-                                   "publications_list.pickle")
+    topics_dir_path = os.path.join(basedir, "publications_list.pickle")
 
     scraper = googleScholarScraper.ArticleScraper()
     publications_list = scraper.scrape(user=user)

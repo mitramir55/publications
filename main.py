@@ -8,7 +8,6 @@ from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 app.debug = True
-basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 # config------------------------------------------------
@@ -49,10 +48,9 @@ def index(**kwargs):
 
     topics_acronyms = ['RE', 'NLP', 'AI']
 
+    topics_dir_path = os.path.join(app.instance_path, "static", "files",
+                                "topics_dict.pickle")
     
-    topics_dir_path = os.path.join(basedir, 
-                                "static/files/topics_dict.pickle")
-
     scraper = googleScholarScraper.ArticleScraper()
     topics_dict = scraper.scrape_topics(topics_acronyms)
     topics_dict = save_or_read_file(path=topics_dir_path, file=topics_dict)
@@ -68,8 +66,8 @@ def publications(**kwargs):
     """
     # Ann Barcomb user id 
     user = "1hMBs-8AAAAJ"
-    topics_dir_path = os.path.join(basedir,  
-                                   "static/files/publications_list.pickle")
+    topics_dir_path = os.path.join(app.instance_path, "static", "files",
+                                   "publications_list.pickle")
 
     scraper = googleScholarScraper.ArticleScraper()
     publications_list = scraper.scrape(user=user)

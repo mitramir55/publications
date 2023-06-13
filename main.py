@@ -3,7 +3,8 @@ from flask import Flask, redirect, url_for, render_template, request, session
 from packages import googleScholarScraper
 import pickle
 import pandas as pd
-
+import os
+from django.conf import settings
 
 app = Flask(__name__)
 app.debug = True
@@ -46,8 +47,10 @@ def save_or_read_file(path, file):
 def index(**kwargs):
 
     topics_acronyms = ['RE', 'NLP', 'AI']
+
     
-    topics_dir_path = r"static/files/topics_dict.pickle"
+    topics_dir_path = os.path.join(settings.BASE_DIR,
+                                "static/files/topics_dict.pickle")
 
     scraper = googleScholarScraper.ArticleScraper()
     topics_dict = scraper.scrape_topics(topics_acronyms)
@@ -64,7 +67,8 @@ def publications(**kwargs):
     """
     # Ann Barcomb user id 
     user = "1hMBs-8AAAAJ"
-    topics_dir_path = r"static/files/publications_list.pickle"
+    topics_dir_path = os.path.join(settings.BASE_DIR, 
+                                   "static/files/publications_list.pickle")
 
     scraper = googleScholarScraper.ArticleScraper()
     publications_list = scraper.scrape(user=user)
